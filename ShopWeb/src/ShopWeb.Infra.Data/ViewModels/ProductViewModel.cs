@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopWeb.Application.CommandQuery.Product.Command
+namespace ShopWeb.Infra.Data.ViewModels
 {
-    public class ProductCommand
+    public class ProductViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public decimal Value { get; set; }
+        public decimal Price { get; set; }
     }
 }
