@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ShopWeb.Application.CommandQuery.Product.Command
 {
-    public class CreateProductCommandHandler
+    public class CreateProductCommandHandler : ProductCommand
     {
+        public CreateProductCommandHandler(Guid id, string name, decimal value)
+        {
+            Id = id;
+            Name = name;
+            Value = value;
+        }
     }
 }
