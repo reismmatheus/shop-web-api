@@ -1,14 +1,13 @@
-﻿using ShopWeb.Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopWeb.Infra.Data.Interface
+namespace ShopWeb.Domain.Interface
 {
-    public interface IRepository<TEntity> where TEntity : Entity
+    public interface IRepositoryDefault<TEntity>
     {
         Task<TEntity> AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);

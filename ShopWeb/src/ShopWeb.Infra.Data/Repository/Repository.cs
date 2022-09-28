@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShopWeb.Domain;
+using ShopWeb.Domain.Models;
 using ShopWeb.Infra.Data.Context;
 using ShopWeb.Infra.Data.Interface;
 using System;

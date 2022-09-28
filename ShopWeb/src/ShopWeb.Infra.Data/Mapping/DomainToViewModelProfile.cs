@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ShopWeb.Domain;
+using ShopWeb.Domain.Models;
 using ShopWeb.Infra.Data.ViewModels;
 using System;
 using System.Collections.Generic;

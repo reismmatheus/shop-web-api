@@ -22,5 +22,14 @@ namespace ShopWeb.API.Controllers
             _mediator.Send(command);
             return NoContent();
         }
+
+        [HttpPost("Get")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public IActionResult Get([FromBody] CreateProductCommand command)
+        {
+            _mediator.Send(command);
+            return NoContent();
+        }
     }
 }
