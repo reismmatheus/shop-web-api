@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShopWeb.Infra.Data.Interface
 {
-    public interface IProductRepository : IRepository<Product>
-    {
-    }
+    //public interface IProductRepository : IRepository<Product>
+    //{
+    //}
 }

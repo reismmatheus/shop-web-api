@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopWeb.Domain.Commands
 {
-    public class CreateProductCommand
+    public class CreateProductCommand : ProductCommand
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
     }
 }

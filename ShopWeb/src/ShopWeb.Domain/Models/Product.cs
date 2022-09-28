@@ -2,7 +2,7 @@
 
 namespace ShopWeb.Domain.Models
 {
-    public class Product : Entity, IAggregateRoot
+    public class Product : EntityDefault, IAggregateRoot
     {
         public string Name { get; set; }
         public decimal Price { get; set; }

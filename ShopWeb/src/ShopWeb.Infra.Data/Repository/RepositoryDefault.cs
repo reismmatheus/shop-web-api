@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ShopWeb.Domain.Interface;
 using ShopWeb.Domain.Models;
 using ShopWeb.Infra.Data.Context;
 using ShopWeb.Infra.Data.Interface;
@@ -11,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace ShopWeb.Infra.Data.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
+    public class RepositoryDefault<TEntity> : IRepositoryDefault<TEntity> where TEntity : EntityDefault
     {
         protected readonly ShopWebContext _context;
-        public Repository(ShopWebContext context)
+        public RepositoryDefault(ShopWebContext context)
         {
             _context = context;
         }

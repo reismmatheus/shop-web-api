@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopWeb.Infra.Data.Interface
 {
-    public interface IRepository<TEntity> where TEntity : Entity
+    public interface IRepository<TEntity>
     {
         Task<TEntity> AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);

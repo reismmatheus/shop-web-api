@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ShopWeb.Application.CommandQuery.Product.Command;
+using ShopWeb.Application.Interface;
+using ShopWeb.Application.ViewModels;
+using ShopWeb.Domain.Commands;
 
 namespace ShopWeb.API.Controllers
 {
@@ -8,28 +10,28 @@ namespace ShopWeb.API.Controllers
     [Route("[controller]")]
     public class ProductController : Controller
     {
-        private readonly IMediator _mediator;
-        public ProductController(IMediator mediator)
+        private readonly IProductBusiness _productBusiness;
+        public ProductController(IProductBusiness productBusiness)
         {
-            _mediator = mediator;
+            _productBusiness = productBusiness;
+        }
+
+        [HttpPost("Get/{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> Get([FromBody] Guid id)
+        {
+            var result = await _productBusiness.Get(id);
+            return Ok(result);
         }
 
         [HttpPost("Create")]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(400)]
-        public IActionResult Create([FromBody] CreateProductCommand command)
-        {
-            _mediator.Send(command);
-            return NoContent();
-        }
-
-        [HttpPost("Get")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public IActionResult Get([FromBody] CreateProductCommand command)
+        public async Task<IActionResult> Create([FromBody] ProductViewModel product)
         {
-            _mediator.Send(command);
-            return NoContent();
+            var result = await _productBusiness.CreateAsync(product);
+            return Ok(result);
         }
     }
 }
