@@ -1,15 +1,13 @@
-﻿using NetDevPack.Messaging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopWeb.Domain.Commands
+namespace ShopWeb.Domain.Entity
 {
-    public class ProductCommand : Command
+    public class Product : Entity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
     }

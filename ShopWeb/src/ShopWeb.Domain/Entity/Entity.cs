@@ -1,13 +1,12 @@
-﻿using NetDevPack.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopWeb.Domain.Models
+namespace ShopWeb.Domain.Entity
 {
-    public class EntityDefault : Entity
+    public class Entity
     {
         public virtual Guid Id { get; set; }
         public virtual DateTime CreatedIn { get; set; }

@@ -1,11 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using ShopWeb.Infra.Data.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var sqlConnectionString = builder.Configuration.GetValue<string>("ConnectionStrings:Sql");
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<ShopWebContext>(options => options.UseSqlServer(sqlConnectionString));
 
 var app = builder.Build();
 
