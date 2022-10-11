@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ShopWeb.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,16 @@ namespace ShopWeb.Domain.Commands.Products.Add
 {
     public class AddProductCommandHandler : IRequestHandler<AddProductCommand, int>
     {
-        public Task<int> Handle(AddProductCommand request, CancellationToken cancellationToken)
+        private readonly IProductRepository _productRepository;
+        private readonly IMediator _mediator;
+        public AddProductCommandHandler(IProductRepository productRepository)
         {
-            throw new NotImplementedException();
+            _productRepository = productRepository;
+        }
+        public async Task<int> Handle(AddProductCommand request, CancellationToken cancellationToken)
+        {
+            // await _productRepository.AddAsync();
+            return 1;
         }
     }
 }
