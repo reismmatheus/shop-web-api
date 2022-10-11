@@ -3,7 +3,8 @@ using MediatR;
 using ShopWeb.Application.Interface;
 using ShopWeb.Domain.Common;
 using ShopWeb.Domain.Interfaces;
-using ShopWeb.Domain.Queries.Product;
+using ShopWeb.Domain.Queries.Product.Get;
+using ShopWeb.Domain.Queries.Product.GetAll;
 
 namespace ShopWeb.Application.Business
 {
@@ -30,6 +31,12 @@ namespace ShopWeb.Application.Business
         public async Task<IList<ProductInventory>> GetAllAsync()
         {
             var result = await _mediator.Send(new GetAllProductsQuery());
+            return result;
+        }
+
+        public async Task<ProductInventory> GetAsync(Guid id)
+        {
+            var result = await _mediator.Send(new GetProductQuery { Id = id});
             return result;
         }
     }

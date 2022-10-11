@@ -18,5 +18,11 @@ namespace ShopWeb.API.Controllers
             var products = _productBusiness.GetAllAsync();
             return Ok(products);
         }
+        [HttpGet("Get/{id}")]
+        public IActionResult Get(Guid id)
+        {
+            var product = _productBusiness.GetAsync(id);
+            return Ok(product);
+        }
     }
 }

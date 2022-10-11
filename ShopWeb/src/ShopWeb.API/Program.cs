@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using ShopWeb.Application.Business;
 using ShopWeb.Application.Interface;
 using ShopWeb.Domain.Interfaces;
-using ShopWeb.Domain.Queries.Product;
+using ShopWeb.Domain.Queries.Product.Get;
+using ShopWeb.Domain.Queries.Product.GetAll;
 using ShopWeb.Infra.Data.Context;
 using ShopWeb.Infra.Data.Repository;
 
@@ -23,7 +24,8 @@ builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
 builder.Services.AddMediatR(new Type[]
 {
-    typeof(GetAllProductsQuery)
+    typeof(GetAllProductsQuery),
+    typeof(GetProductQuery)
     //typeof(CommandsMediatR.UpdateProductUnitPriceCommand),
     //typeof(CommandsMediatR.UpdateProductCurrentStockCommand),
     //typeof(QueriesMediatR.GetProductsByNameQuery),

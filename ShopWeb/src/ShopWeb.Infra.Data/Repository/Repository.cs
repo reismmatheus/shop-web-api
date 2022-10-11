@@ -40,7 +40,7 @@ namespace ShopWeb.Infra.Data.Repository
 
         public async Task<TEntity?> GetByIdAsync(Guid id)
         {
-            return await _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id);
+            return _context.Set<TEntity>().FirstOrDefault(x => x.Id == id);
         }
 
         public async Task UpdateAsync(TEntity entity)

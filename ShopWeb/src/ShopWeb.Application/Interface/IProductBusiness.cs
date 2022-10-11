@@ -11,5 +11,6 @@ namespace ShopWeb.Application.Interface
     {
         Task<bool> AddAsync();
         Task<IList<ProductInventory>> GetAllAsync();
+        Task<ProductInventory> GetAsync(Guid id);
     }
 }
