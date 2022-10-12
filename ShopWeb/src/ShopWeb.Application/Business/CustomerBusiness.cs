@@ -1,8 +1,11 @@
 ﻿using MediatR;
 using ShopWeb.Application.Interface;
-using ShopWeb.Domain.Commands.Products.Add;
+using ShopWeb.Domain.Commands.Customer.Add;
+using ShopWeb.Domain.Commands.Customer.Update;
 using ShopWeb.Domain.Commands.Products.Update;
 using ShopWeb.Domain.Common;
+using ShopWeb.Domain.Queries.Customer.Get;
+using ShopWeb.Domain.Queries.Customer.GetAll;
 using ShopWeb.Domain.Queries.Product.Get;
 using ShopWeb.Domain.Queries.Product.GetAll;
 using System;
@@ -21,27 +24,27 @@ namespace ShopWeb.Application.Business
             _mediator = mediator;
         }
 
-        public async Task<bool> AddAsync(AddProductCommand command)
+        public async Task<bool> AddAsync(AddCustomerCommand command)
         {
             var result = await _mediator.Send(command);
             return result == 1;
         }
 
-        public async Task<bool> UpdateAsync(UpdateProductCommand command)
+        public async Task<bool> UpdateAsync(UpdateCustomerCommand command)
         {
             var result = await _mediator.Send(command);
             return result == 1;
         }
 
-        public async Task<IList<ProductInventory>> GetAllAsync()
+        public async Task<IList<CustomerCommon>> GetAllAsync()
         {
-            var result = await _mediator.Send(new GetAllProductsQuery());
+            var result = await _mediator.Send(new GetAllCustomersQuery());
             return result;
         }
 
-        public async Task<ProductInventory> GetAsync(Guid id)
+        public async Task<CustomerCommon> GetAsync(Guid id)
         {
-            var result = await _mediator.Send(new GetProductQuery { Id = id });
+            var result = await _mediator.Send(new GetCustomerQuery { Id = id });
             return result;
         }
     }

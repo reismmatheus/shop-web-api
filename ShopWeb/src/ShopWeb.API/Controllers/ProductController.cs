@@ -18,14 +18,14 @@ namespace ShopWeb.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddProductCommand command)
         {
-            var products = await _productBusiness.AddAsync(command);
+            var product = await _productBusiness.AddAsync(command);
             return Ok();
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, UpdateProductCommand command)
         {
-            var products = await _productBusiness.UpdateAsync(command);
+            var product = await _productBusiness.UpdateAsync(command);
             return Ok();
         }
 
