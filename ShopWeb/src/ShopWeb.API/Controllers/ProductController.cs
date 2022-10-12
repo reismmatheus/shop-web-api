@@ -23,7 +23,7 @@ namespace ShopWeb.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Add(Guid id, UpdateProductCommand command)
+        public async Task<IActionResult> Update(Guid id, UpdateProductCommand command)
         {
             var products = await _productBusiness.UpdateAsync(command);
             return Ok();

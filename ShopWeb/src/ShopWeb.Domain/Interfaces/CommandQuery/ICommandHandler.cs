@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopWeb.Domain.Interfaces
+namespace ShopWeb.Domain.Interfaces.CommandQuery
 {
     public interface ICommand
     { }

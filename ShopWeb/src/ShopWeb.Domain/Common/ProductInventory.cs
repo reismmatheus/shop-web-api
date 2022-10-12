@@ -1,4 +1,4 @@
-﻿using ShopWeb.Domain.Interfaces;
+﻿using ShopWeb.Domain.Interfaces.CommandQuery;
 using System;
 using System.Collections.Generic;
 using System.Linq;
