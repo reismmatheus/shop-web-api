@@ -2,6 +2,7 @@
 using MediatR;
 using ShopWeb.Application.Interface;
 using ShopWeb.Domain.Commands.Products.Add;
+using ShopWeb.Domain.Commands.Products.Update;
 using ShopWeb.Domain.Common;
 using ShopWeb.Domain.Interfaces;
 using ShopWeb.Domain.Queries.Product.Get;
@@ -19,6 +20,12 @@ namespace ShopWeb.Application.Business
         }
 
         public async Task<bool> AddAsync(AddProductCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return result == 1;
+        }
+
+        public async Task<bool> UpdateAsync(UpdateProductCommand command)
         {
             var result = await _mediator.Send(command);
             return result == 1;

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShopWeb.Application.Interface;
+using ShopWeb.Domain.Commands.Products.Add;
+using ShopWeb.Domain.Commands.Products.Update;
 
 namespace ShopWeb.API.Controllers
 {
@@ -13,17 +15,31 @@ namespace ShopWeb.API.Controllers
             _productBusiness = productBusiness;
         }
 
-        [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        [HttpPost]
+        public async Task<IActionResult> Add(AddProductCommand command)
         {
-            var products = _productBusiness.GetAllAsync();
+            var products = await _productBusiness.AddAsync(command);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Add(Guid id, UpdateProductCommand command)
+        {
+            var products = await _productBusiness.UpdateAsync(command);
+            return Ok();
+        }
+
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var products = await _productBusiness.GetAllAsync();
             return Ok(products);
         }
 
         [HttpGet("Get/{id}")]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            var product = _productBusiness.GetAsync(id);
+            var product = await _productBusiness.GetAsync(id);
             return Ok(product);
         }
     }

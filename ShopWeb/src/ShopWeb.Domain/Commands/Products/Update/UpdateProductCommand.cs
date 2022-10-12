@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopWeb.Domain.Commands.Products.Add
+namespace ShopWeb.Domain.Commands.Products.Update
 {
-    public class AddProductCommand : IRequest<int>
+    public class UpdateProductCommand : IRequest<int>
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
     }
