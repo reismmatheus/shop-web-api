@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using ShopWeb.Application.Interface;
+using ShopWeb.Domain.Commands.Products.Add;
 using ShopWeb.Domain.Common;
 using ShopWeb.Domain.Interfaces;
 using ShopWeb.Domain.Queries.Product.Get;
@@ -10,22 +11,17 @@ namespace ShopWeb.Application.Business
 {
     public class ProductBusiness : IProductBusiness
     {
-        private readonly IQueryDispatcher _queryDispatcher;
-
         private readonly IMediator _mediator;
-        private readonly IMapper _mapper;
 
-        public ProductBusiness(IMediator mediator/*, IMapper mapper*/)
+        public ProductBusiness(IMediator mediator)
         {
             _mediator = mediator;
-            // _mapper = mapper;
         }
 
-        public async Task<bool> AddAsync()
+        public async Task<bool> AddAsync(AddProductCommand command)
         {
-            //var command = _mapper.Map<CreateProductCommand>(product);
-            //var result = await _mediator.Send(command);
-            return true;
+            var result = await _mediator.Send(command);
+            return result == 1;
         }
 
         public async Task<IList<ProductInventory>> GetAllAsync()

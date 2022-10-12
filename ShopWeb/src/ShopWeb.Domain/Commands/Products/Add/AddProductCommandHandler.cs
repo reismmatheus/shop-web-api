@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ShopWeb.Domain.Entity;
 using ShopWeb.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace ShopWeb.Domain.Commands.Products.Add
         }
         public async Task<int> Handle(AddProductCommand request, CancellationToken cancellationToken)
         {
-            // await _productRepository.AddAsync();
+            var product = new Product { Name = request.Name, Price = request.Price };
+            await _productRepository.AddAsync(product);
             return 1;
         }
     }

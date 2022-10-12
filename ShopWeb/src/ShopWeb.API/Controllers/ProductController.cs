@@ -12,12 +12,14 @@ namespace ShopWeb.API.Controllers
         {
             _productBusiness = productBusiness;
         }
+
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var products = _productBusiness.GetAllAsync();
             return Ok(products);
         }
+
         [HttpGet("Get/{id}")]
         public IActionResult Get(Guid id)
         {
