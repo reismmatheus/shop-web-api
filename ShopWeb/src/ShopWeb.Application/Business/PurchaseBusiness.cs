@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using ShopWeb.Application.Interface;
+using ShopWeb.Domain.Commands.Purchase.Add;
 using ShopWeb.Domain.Common;
 using ShopWeb.Domain.Queries.Product.Get;
 using ShopWeb.Domain.Queries.Product.GetAll;
@@ -19,9 +20,10 @@ namespace ShopWeb.Application.Business
             _mediator = mediator;
         }
 
-        public async Task AddAsync()
+        public async Task<bool> AddAsync(AddPurchaseCommand command)
         {
-            // customerId
+            var result = await _mediator.Send(command);
+            return result == 1;
         }
 
         //public async Task<IList<ProductInventory>> GetAllAsync()

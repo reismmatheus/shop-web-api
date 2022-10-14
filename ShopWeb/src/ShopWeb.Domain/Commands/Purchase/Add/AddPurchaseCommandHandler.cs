@@ -11,15 +11,15 @@ namespace ShopWeb.Domain.Commands.Purchase.Add
 {
     public class AddPurchaseCommandHandler : IRequestHandler<AddPurchaseCommand, int>
     {
-        private readonly ICustomerRepository _customerRepository;
-        public AddPurchaseCommandHandler(ICustomerRepository customerRepository)
+        private readonly IPurchaseRepository _purchaseRepository;
+        public AddPurchaseCommandHandler(IPurchaseRepository purchaseRepository)
         {
-            _customerRepository = customerRepository;
+            _purchaseRepository = purchaseRepository;
         }
         public async Task<int> Handle(AddPurchaseCommand request, CancellationToken cancellationToken)
         {
-            var customer = new Entity.Customer { Name = request.Name, Email = request.Email, BirthDate = request.BirthDate };
-            await _customerRepository.AddAsync(customer);
+            var purchase = new Entity.Purchase { CustomerId = request.CustomerId };
+            await _purchaseRepository.AddAsync(purchase);
             return 1;
         }
     }

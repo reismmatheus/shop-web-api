@@ -5,6 +5,7 @@ using ShopWeb.Application.Interface;
 using ShopWeb.Domain.Commands.Customer.Add;
 using ShopWeb.Domain.Commands.Customer.Update;
 using ShopWeb.Domain.Commands.Products.Add;
+using ShopWeb.Domain.Commands.Purchase.Add;
 using ShopWeb.Domain.Interfaces;
 using ShopWeb.Domain.Queries.Customer.Get;
 using ShopWeb.Domain.Queries.Customer.GetAll;
@@ -25,9 +26,12 @@ builder.Services.AddDbContext<ShopWebContext>(options => options.UseSqlServer(sq
 
 builder.Services.AddTransient<IProductBusiness, ProductBusiness>();
 builder.Services.AddTransient<ICustomerBusiness, CustomerBusiness>();
+builder.Services.AddTransient<IPurchaseBusiness, PurchaseBusiness>();
 
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddTransient<IPurchaseRepository, PurchaseRepository>();
+builder.Services.AddTransient<IPurchaseProductRepository, PurchaseProductRepository>();
 
 builder.Services.AddMediatR(new Type[]
 {
@@ -35,6 +39,8 @@ builder.Services.AddMediatR(new Type[]
     typeof(UpdateCustomerCommand),
     typeof(AddProductCommand),
     typeof(UpdateCustomerCommand),
+    typeof(AddPurchaseCommand),
+
     typeof(GetAllProductsQuery),
     typeof(GetProductQuery),
     typeof(GetAllCustomersQuery),
