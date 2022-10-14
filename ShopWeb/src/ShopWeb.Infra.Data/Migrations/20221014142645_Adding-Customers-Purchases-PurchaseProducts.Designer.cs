@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopWeb.Infra.Data.Context;
 
@@ -11,9 +12,10 @@ using ShopWeb.Infra.Data.Context;
 namespace ShopWeb.Infra.Data.Migrations
 {
     [DbContext(typeof(ShopWebContext))]
-    partial class ShopWebContextModelSnapshot : ModelSnapshot
+    [Migration("20221014142645_Adding-Customers-Purchases-PurchaseProducts")]
+    partial class AddingCustomersPurchasesPurchaseProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

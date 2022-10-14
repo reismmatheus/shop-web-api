@@ -17,5 +17,8 @@ namespace ShopWeb.Infra.Data.Context
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
+        public DbSet<PurchaseProduct> PurchaseProducts { get; set; }
     }
 }
