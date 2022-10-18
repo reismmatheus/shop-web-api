@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using ShopWeb.Application.Interface;
 using ShopWeb.Domain.Commands.Purchase.Add;
+using ShopWeb.Domain.Commands.Purchase.AddWithProducts;
 using ShopWeb.Domain.Common;
 using ShopWeb.Domain.Queries.Product.Get;
 using ShopWeb.Domain.Queries.Product.GetAll;
@@ -21,6 +22,12 @@ namespace ShopWeb.Application.Business
         }
 
         public async Task<bool> AddAsync(AddPurchaseCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return result == 1;
+        }
+
+        public async Task<bool> AddWithProductsAsync(AddPurchaseWithProductsCommand command)
         {
             var result = await _mediator.Send(command);
             return result == 1;

@@ -26,6 +26,12 @@ namespace ShopWeb.Infra.Data.Repository
             await _context.SaveChangesAsync();
         }
 
+        public virtual async Task AddRangeAsync(IList<TEntity> entity)
+        {
+            await _context.Set<TEntity>().AddRangeAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
         public virtual async Task DeleteAsync(Guid id)
         {
             var entity = await GetByIdAsync(id);

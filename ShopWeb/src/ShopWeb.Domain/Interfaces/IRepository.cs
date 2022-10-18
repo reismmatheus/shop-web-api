@@ -10,6 +10,7 @@ namespace ShopWeb.Domain.Interfaces
     public interface IRepository<TEntity> where TEntity : Entity.Entity
     {
         Task AddAsync(TEntity entity);
+        Task AddRangeAsync(IList<TEntity> entity);
         Task UpdateAsync(TEntity entity);
         Task DeleteAsync(Guid id);
         Task<TEntity?> GetByIdAsync(Guid id);
