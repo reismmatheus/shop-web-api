@@ -16,5 +16,15 @@ namespace ShopWeb.Infra.Data.Repository
         {
             _context = context;
         }
+        public async Task<IList<Purchase>> GetAllWithProducts()
+        {
+            var purchaseProducts = from p in _context.Purchases
+                                   join pp in _context.PurchaseProducts on p.Id equals pp.PurchaseId
+                                   select new { p, pp };
+
+            var xx = purchaseProducts.ToList();
+
+            return default;
+        }
     }
 }

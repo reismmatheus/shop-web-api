@@ -1,6 +1,7 @@
 ﻿using ShopWeb.Domain.Commands.Purchase.Add;
 using ShopWeb.Domain.Commands.Purchase.AddWithProducts;
 using ShopWeb.Domain.Common;
+using ShopWeb.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace ShopWeb.Application.Interface
     {
         Task<bool> AddAsync(AddPurchaseCommand command);
         Task<bool> AddWithProductsAsync(AddPurchaseWithProductsCommand command);
-        Task<IList<ProductInventory>> GetAllAsync();
-        Task<ProductInventory> GetAsync(Guid id);
+        Task<IList<Purchase>> GetAllAsync();
+        Task<Purchase> GetAsync(Guid id);
     }
 }
